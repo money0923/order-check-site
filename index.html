@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>🧸 訂單確認小屋</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      background: linear-gradient(to bottom right, #ffe6f0, #d0f0ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      width: 300px;
+      text-align: center;
+    }
+    input { 
+      width: 100%; 
+      padding: 8px; 
+      margin: 10px 0; 
+      border-radius: 10px; 
+      border: 1px solid #ccc; 
+    }
+    button { 
+      width: 100%; 
+      padding: 10px; 
+      background-color: #ff99cc; 
+      border: none; 
+      border-radius: 10px; 
+      color: white; 
+      font-weight: bold; 
+      cursor: pointer;
+    }
+    button:hover { background-color: #ff66aa; }
+    .result { 
+      margin-top: 15px; 
+      padding: 10px; 
+      background: #f0f0f0; 
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧸 訂單確認小屋 🧸</h1>
+    <input type="text" id="orderId" placeholder="請輸入訂單編號">
+    <button onclick="checkOrder()">查詢訂單 🔍</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const orders = {
+      "A123": { name: "小熊貼紙", status: "已出貨 🐻📦" },
+      "B456": { name: "童話故事書", status: "備貨中 ✨" }
+    };
+    function checkOrder() {
+      const id = document.getElementById('orderId').value;
+      const result = orders[id] || { name: "查無此訂單", status: "❌" };
+      document.getElementById('result').innerHTML = `商品：${result.name}<br>狀態：${result.status}`;
+    }
+  </script>
+</body>
+</html>
